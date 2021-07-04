@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:lottie/lottie.dart';
 
 import '../constants.dart';
 import 'mobile_otp_screen.dart';
@@ -49,7 +50,12 @@ class _MobileInputFieldState extends State<MobileInputField> {
       children: [
         _buildTextField(widthFactor),
         SizedBox(height: 50 * heightFactor),
-        if (_loading) Container(child: CircularProgressIndicator()),
+        if (_loading)
+          SizedBox(
+            width: 160 * widthFactor,
+            height: 65 * heightFactor,
+            child: Lottie.asset('assets/lottie/lottie.json'),
+          ),
         if (!_loading && !_isValid)
           AlertContainer(
             widthFactor: widthFactor,
