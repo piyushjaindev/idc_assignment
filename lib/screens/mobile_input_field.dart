@@ -33,6 +33,8 @@ class _MobileInputFieldState extends State<MobileInputField> {
             MaterialPageRoute(
               builder: (context) => MobileOTPScreen(number),
             ));
+      else
+        HapticFeedback.mediumImpact();
     });
   }
 

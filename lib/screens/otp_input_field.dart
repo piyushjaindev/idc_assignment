@@ -28,14 +28,16 @@ class _OTPInputFieldState extends State<OTPInputField> {
         _isValid = otp == '858585';
         _isComplete = true;
       });
-      Future.delayed(Duration(milliseconds: 500)).then((value) {
-        if (_isValid)
+      if (_isValid)
+        Future.delayed(Duration(milliseconds: 500)).then((value) {
           Navigator.push(
               context,
               MaterialPageRoute(
                 builder: (context) => FeedScreen(),
               ));
-      });
+        });
+      else
+        HapticFeedback.mediumImpact();
     });
   }
 
